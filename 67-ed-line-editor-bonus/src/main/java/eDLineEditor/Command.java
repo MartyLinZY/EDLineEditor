@@ -18,7 +18,7 @@ public interface Command { public void execute();}
  */
 class CommandA implements Command{
     private int Linenum;
-    private final int  defaultAddress=EDLineEditor.currentLine;
+    private final int  defaultAddress=SaveArea.currentLine;
     public CommandA(int access) {
         if(access==-1){
             Linenum=defaultAddress;
@@ -29,27 +29,27 @@ class CommandA implements Command{
     @Override
     public void execute() {
         try {
-            Scanner sc=EDLineEditor.sc;
+            Scanner sc=SaveArea.sc;
             String nextLine;
 
             List<String> temp=new ArrayList<>();
-            if(Linenum<0||Linenum>EDLineEditor.memory.size()){System.out.println("?");}
+            if(Linenum<0||Linenum>SaveArea.memory.size()){System.out.println("?");}
             else {
-                EDLineEditor.currentLine=Linenum;
+                SaveArea.currentLine=Linenum;
                 for (int i = 0; i < Linenum; i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                    temp.add(SaveArea.memory.get(i));
                 }
                 while (!(nextLine = sc.nextLine()).equals(".")) {
                     temp.add(nextLine + System.getProperty("line.separator"));
-                    EDLineEditor.currentLine++;
+                    SaveArea.currentLine++;
                 }
-                for (int i = Linenum; i < EDLineEditor.memory.size(); i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                for (int i = Linenum; i < SaveArea.memory.size(); i++) {
+                    temp.add(SaveArea.memory.get(i));
                 }
-                EDLineEditor.memory = temp;
-                EDLineEditor.saveList.add(EDLineEditor.memory);
-                EDLineEditor.lineList.add(EDLineEditor.currentLine);
-                EDLineEditor.undoCounter++;
+                SaveArea.memory = temp;
+                SaveArea.saveList.add(SaveArea.memory);
+                SaveArea.lineList.add(SaveArea.currentLine);
+                SaveArea.undoCounter++;
             }
         }
         catch(Exception ex){
@@ -71,27 +71,27 @@ class CommandC implements Command{
     @Override
     public void execute() {
         try {
-            if (num1 <= 0||num2>EDLineEditor.memory.size()) {
+            if (num1 <= 0||num2>SaveArea.memory.size()) {
                 System.out.println("?");
             } else {
                 List<String> temp = new ArrayList<>();
-                Scanner sc = EDLineEditor.sc;
+                Scanner sc = SaveArea.sc;
                 for (int i = 0; i < num1 - 1; i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                    temp.add(SaveArea.memory.get(i));
                 }
-                EDLineEditor.currentLine = num1 - 1;
+                SaveArea.currentLine = num1 - 1;
                 String str = "";
                 while ((str = sc.nextLine()) != null && !str.equals(".")) {
                     temp.add(str + System.getProperty("line.separator"));
-                    EDLineEditor.currentLine++;
+                    SaveArea.currentLine++;
                 }
-                for (int i = num2; i < EDLineEditor.memory.size(); i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                for (int i = num2; i < SaveArea.memory.size(); i++) {
+                    temp.add(SaveArea.memory.get(i));
                 }
-                EDLineEditor.memory = temp;
-                EDLineEditor.saveList.add(EDLineEditor.memory);
-                EDLineEditor.lineList.add(EDLineEditor.currentLine);
-                EDLineEditor.undoCounter++;
+                SaveArea.memory = temp;
+                SaveArea.saveList.add(SaveArea.memory);
+                SaveArea.lineList.add(SaveArea.currentLine);
+                SaveArea.undoCounter++;
             }
 
         }
@@ -123,23 +123,23 @@ class CommandD implements Command{
     @Override
     public void execute() {
         try {
-            int length=EDLineEditor.memory.size();
+            int length=SaveArea.memory.size();
             List<String> temp=new ArrayList<>();
-            if(num1>EDLineEditor.memory.size()||num2<=0||num1>num2||num1<=0){System.out.println("?");}else{
+            if(num1>SaveArea.memory.size()||num2<=0||num1>num2||num1<=0){System.out.println("?");}else{
                 for(int i=0;i<length;i++){
                     if(i<num1-1||i>num2-1){
-                        temp.add(EDLineEditor.memory.get(i));
+                        temp.add(SaveArea.memory.get(i));
                     }
                 }
-                EDLineEditor.memory=temp;
+                SaveArea.memory=temp;
                 if(num2>=length){
-                    EDLineEditor.currentLine=num1-1;
+                    SaveArea.currentLine=num1-1;
                 }else{
-                    EDLineEditor.currentLine=num1;
+                    SaveArea.currentLine=num1;
                 }}
-            EDLineEditor.saveList.add(EDLineEditor.memory);
-            EDLineEditor.lineList.add(EDLineEditor.currentLine);
-            EDLineEditor.undoCounter++;
+            SaveArea.saveList.add(SaveArea.memory);
+            SaveArea.lineList.add(SaveArea.currentLine);
+            SaveArea.undoCounter++;
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -159,25 +159,25 @@ class CommandI implements Command{
     public void execute() {
         try {
             String nextLine;
-            Scanner sc=EDLineEditor.sc;
+            Scanner sc=SaveArea.sc;
 
             List<String> temp=new ArrayList<>();
-            if(Linenum<0||Linenum>EDLineEditor.memory.size()){System.out.println("?");}
-            else{ if(Linenum==0){EDLineEditor.currentLine=Linenum;}else{
-                EDLineEditor.currentLine=Linenum-1;}
+            if(Linenum<0||Linenum>SaveArea.memory.size()){System.out.println("?");}
+            else{ if(Linenum==0){SaveArea.currentLine=Linenum;}else{
+                SaveArea.currentLine=Linenum-1;}
                 for(int i=0;i<Linenum-1;i++){
-                    temp.add(EDLineEditor.memory.get(i));
+                    temp.add(SaveArea.memory.get(i));
                 }
                 while(!(nextLine=sc.nextLine()).equals(".")){
                     temp.add(nextLine+System.getProperty("line.separator"));
-                    EDLineEditor.currentLine++;
+                    SaveArea.currentLine++;
                 }
                 if(Linenum>0){
-                    for(int i=Linenum-1;i<EDLineEditor.memory.size();i++){temp.add(EDLineEditor.memory.get(i));}}
-                EDLineEditor.memory=temp;
-                EDLineEditor.saveList.add(EDLineEditor.memory);
-                EDLineEditor.lineList.add(EDLineEditor.currentLine);
-                EDLineEditor.undoCounter++;
+                    for(int i=Linenum-1;i<SaveArea.memory.size();i++){temp.add(SaveArea.memory.get(i));}}
+                SaveArea.memory=temp;
+                SaveArea.saveList.add(SaveArea.memory);
+                SaveArea.lineList.add(SaveArea.currentLine);
+                SaveArea.undoCounter++;
             }}
         catch(Exception ex){ex.printStackTrace(); }
     }
@@ -207,9 +207,9 @@ class CommandU implements Command{
     }
     @Override
     public void execute() {
-        EDLineEditor.memory=EDLineEditor.saveList.get(EDLineEditor.undoCounter-1);
-        EDLineEditor.currentLine=EDLineEditor.lineList.get(EDLineEditor.undoCounter-1);
-        EDLineEditor.undoCounter--;
+        SaveArea.memory=SaveArea.saveList.get(SaveArea.undoCounter-1);
+        SaveArea.currentLine=SaveArea.lineList.get(SaveArea.undoCounter-1);
+        SaveArea.undoCounter--;
     }
 }
 /**
@@ -226,12 +226,12 @@ class  Commandw implements Command{
     }
     @Override
     public void execute() {
-        if(EDLineEditor.defaultFilename.equals("未命名")&&filename.equals("")){
+        if(SaveArea.defaultFilename.equals("未命名")&&filename.equals("")){
             System.out.println("?");
         }
         else{
-            if(num1<0||num2>EDLineEditor.memory.size()||num1>num2){System.out.println("?");}else{
-                EDLineEditor.state=State.Save;
+            if(num1<0||num2>SaveArea.memory.size()||num1>num2){System.out.println("?");}else{
+                SaveArea.state=State.Save;
                 try{ File f=new File(filename);
                     if(!f.exists()){
                         f.createNewFile();
@@ -240,10 +240,10 @@ class  Commandw implements Command{
                         f.createNewFile();
                     }BufferedWriter bw=new BufferedWriter(new FileWriter(f));
                     for(int i=num1-1;i<num2;i++){
-                        if(EDLineEditor.memory.get(i).contains("‘")){
-                            bw.write(EDLineEditor.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
+                        if(SaveArea.memory.get(i).contains("‘")){
+                            bw.write(SaveArea.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
                         }else{
-                        bw.write(EDLineEditor.memory.get(i));}
+                        bw.write(SaveArea.memory.get(i));}
                     }
                     bw.close();
                 }catch(Exception ex){
@@ -261,11 +261,11 @@ class Command_W implements Command{
     }
     @Override
     public void execute() {
-        if(EDLineEditor.defaultFilename.equals("未命名")&&filename.equals("")){
+        if(SaveArea.defaultFilename.equals("未命名")&&filename.equals("")){
             System.out.println("?");
         }
         else{
-            EDLineEditor.state=State.Save;
+            SaveArea.state=State.Save;
             try{ File f=new File(filename);
 
                 if(!f.exists()){
@@ -273,19 +273,19 @@ class Command_W implements Command{
                     f.createNewFile();
                     BufferedWriter bw=new BufferedWriter(new FileWriter(f));
                     for(int i=num1-1;i<num2;i++){
-                        if(EDLineEditor.memory.get(i).contains("‘")){
-                            bw.write(EDLineEditor.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
+                        if(SaveArea.memory.get(i).contains("‘")){
+                            bw.write(SaveArea.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
                         }else{
-                            bw.write(EDLineEditor.memory.get(i));}
+                            bw.write(SaveArea.memory.get(i));}
                     }
                     bw.close();
                 }else{
                     BufferedWriter bw=new BufferedWriter(new FileWriter(f,true));
                     for(int i=num1-1;i<num2;i++){
-                        if(EDLineEditor.memory.get(i).contains("‘")){
-                            bw.write(EDLineEditor.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
+                        if(SaveArea.memory.get(i).contains("‘")){
+                            bw.write(SaveArea.memory.get(i).split("‘")[0]+System.getProperty("line.separator"));
                         }else{
-                            bw.write(EDLineEditor.memory.get(i));}
+                            bw.write(SaveArea.memory.get(i));}
                         bw.flush();
                     }
                     bw.close();
@@ -340,40 +340,40 @@ class CommandS implements Command{
                     int flag=0;
                     int ask=0;
                     for(int i=num1-1;i<num2;i++){
-                        if(EDLineEditor.memory.get(i).contains(str1)){
+                        if(SaveArea.memory.get(i).contains(str1)){
                             flag=1;
-                            EDLineEditor.currentLine=i+1;
+                            SaveArea.currentLine=i+1;
                         }
                     }
                     if(flag==0){ ask=0;
                     }else{
                         if(num.equals("g")) {
                             for(int i=0;i<num1-1;i++){
-                                temp.add(EDLineEditor.memory.get(i));
+                                temp.add(SaveArea.memory.get(i));
                             }
                             for(int i=num1-1;i<num2;i++){
-                                temp.add(EDLineEditor.memory.get(i).split("‘")[0].replaceAll(str1,str2)+System.getProperty("line.separator"));
+                                temp.add(SaveArea.memory.get(i).split("‘")[0].replaceAll(str1,str2)+System.getProperty("line.separator"));
                             }
-                            for(int i=num2;i<EDLineEditor.memory.size();i++){
-                                temp.add(EDLineEditor.memory.get(i));
+                            for(int i=num2;i<SaveArea.memory.size();i++){
+                                temp.add(SaveArea.memory.get(i));
                             }
                             ask=1;
                         }else{
                             if(num.equals("first")){
                                 for(int i=0;i<num1-1;i++){
-                                    temp.add(EDLineEditor.memory.get(i));
+                                    temp.add(SaveArea.memory.get(i));
                                 }
                                 for(int i=num1-1;i<num2;i++){
-                                    temp.add(EDLineEditor.memory.get(i).split("‘")[0].replaceFirst(str1,str2)+System.getProperty("line.separator"));
+                                    temp.add(SaveArea.memory.get(i).split("‘")[0].replaceFirst(str1,str2)+System.getProperty("line.separator"));
                                 }
-                                for(int i=num2;i<EDLineEditor.memory.size();i++){
-                                    temp.add(EDLineEditor.memory.get(i));
+                                for(int i=num2;i<SaveArea.memory.size();i++){
+                                    temp.add(SaveArea.memory.get(i));
                                 }
                                 ask=1;
                             }else{
                                 int n=Integer.parseInt(num);
                                 for(int i=0;i<num1-1;i++){
-                                    temp.add(EDLineEditor.memory.get(i));
+                                    temp.add(SaveArea.memory.get(i));
                                 }
 
                                 for(int i=num1-1;i<num2;i++){
@@ -381,8 +381,8 @@ class CommandS implements Command{
                                     int startwith=-1;
                                     flag=1;
                                     String tempStr="";
-                                    char[] mList= EDLineEditor.memory.get(i).toCharArray();
-                                    for(int j=0;j<EDLineEditor.memory.get(i).length();j++){
+                                    char[] mList= SaveArea.memory.get(i).toCharArray();
+                                    for(int j=0;j<SaveArea.memory.get(i).length();j++){
                                         char[] str1List=str1.toCharArray();
                                         if(str1List[0]==mList[j]){
                                             if(count==n-1){
@@ -402,27 +402,27 @@ class CommandS implements Command{
                                     }
                                     if(startwith!=-1){ask=1;
                                         for(int j=0;j<startwith;j++){
-                                            tempStr+=Character.toString(EDLineEditor.memory.get(i).charAt(j));
+                                            tempStr+=Character.toString(SaveArea.memory.get(i).charAt(j));
                                         }
-                                        tempStr+=str2;       EDLineEditor.currentLine=i+1;
-                                        for(int j=startwith+str1.length();j<EDLineEditor.memory.get(i).length();j++){
-                                            tempStr+=Character.toString(EDLineEditor.memory.get(i).charAt(j));
+                                        tempStr+=str2;       SaveArea.currentLine=i+1;
+                                        for(int j=startwith+str1.length();j<SaveArea.memory.get(i).length();j++){
+                                            tempStr+=Character.toString(SaveArea.memory.get(i).charAt(j));
                                         }
                                         temp.add(tempStr.split("‘")[0]+System.getProperty("line.separator"));
                                     }else{
 
-                                        temp.add(EDLineEditor.memory.get(i));
+                                        temp.add(SaveArea.memory.get(i));
                                     }
                                 }
-                                for(int i=num2;i<EDLineEditor.memory.size();i++){
-                                    temp.add(EDLineEditor.memory.get(i));
+                                for(int i=num2;i<SaveArea.memory.size();i++){
+                                    temp.add(SaveArea.memory.get(i));
                                 }
                             }
                         }
 
-                        EDLineEditor.memory=temp;EDLineEditor.saveList.add(EDLineEditor.memory);
-                        EDLineEditor.lineList.add(EDLineEditor.currentLine);
-                        EDLineEditor.undoCounter++;
+                       SaveArea.memory=temp;SaveArea.saveList.add(SaveArea.memory);
+                       SaveArea.lineList.add(SaveArea.currentLine);
+                       SaveArea.undoCounter++;
                     }if(ask==0){System.out.println("?");}
                 }}
 
@@ -444,31 +444,20 @@ class CommandF implements Command{
         filename="pleaseprintthefilename";
     }
     public CommandF(String args) {
-        EDLineEditor.defaultFilename=args;
+        SaveArea.defaultFilename=args;
         filename=args;
     }
     @Override
     public void execute() {
-        if(EDLineEditor.defaultFilename.equals("undefined")&&filename.equals("pleaseprintthefilename")){
+        if(SaveArea.defaultFilename.equals("undefined")&&filename.equals("pleaseprintthefilename")){
             System.out.println("?");
         }
         else if(filename.equals("pleaseprintthefilename")){
-            System.out.println(EDLineEditor.defaultFilename);
+            System.out.println(SaveArea.defaultFilename);
         }
 
     }
 }
-class CommandED implements Command{
-    private String str;
-    public CommandED(String str){
-        this.str=str;
-    }
-    @Override
-    public void execute() {
-        if(str.equals("ed test222")){
-            System.out.println("001"+System.getProperty("line.separator")+"4"+System.getProperty("line.separator")+ "test_u"+System.getProperty("line.separator")+ "001"+System.getProperty("line.separator")+ "aa"+System.getProperty("line.separator")+ "ww"+System.getProperty("line.separator")+ "ff"+System.getProperty("line.separator")+ "5"+System.getProperty("line.separator")+ "3"+System.getProperty("line.separator")+ "test_u"+System.getProperty("line.separator")+ "001"+System.getProperty("line.separator")+ "ff"+System.getProperty("line.separator")+ "3"+System.getProperty("line.separator")+ "2"+System.getProperty("line.separator")+ "test_u"+System.getProperty("line.separator")+ "001"+System.getProperty("line.separator")+ "dd"+System.getProperty("line.separator")+ "ff"+System.getProperty("line.separator")+ "4"); EDLineEditor.state=State.Stop;
-        }
-    }}
     /**
  * 初始化需要起始行和结束行
  * 对缓存区操作增删改查
@@ -484,30 +473,30 @@ class CommandJ implements Command{
         try {
             List<String> temp=new ArrayList<>();
             String str="";
-            if(num2>EDLineEditor.memory.size()){System.out.println("?");}
+            if(num2>SaveArea.memory.size()){System.out.println("?");}
             else {
                 for (int i = 0; i < num1 - 1; i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                    temp.add(SaveArea.memory.get(i));
                 }
                 for (int i = num1 - 1; i < num2 - 1; i++) {
-                    if(EDLineEditor.memory.get(i).contains("‘")){
-                        str += EDLineEditor.memory.get(i).split("‘")[0].replaceAll("\r|\n", "");
+                    if(SaveArea.memory.get(i).contains("‘")){
+                        str += SaveArea.memory.get(i).split("‘")[0].replaceAll("\r|\n", "");
                     }else{
-                        str += EDLineEditor.memory.get(i).replaceAll("\r|\n", "");}
+                        str += SaveArea.memory.get(i).replaceAll("\r|\n", "");}
                 }
-                if(EDLineEditor.memory.get(num2-1).contains("‘")){
-                    temp.add(str + EDLineEditor.memory.get(num2 - 1).split("‘")[0].replaceAll("\r|\n", "")+System.getProperty("line.separator"));
+                if(SaveArea.memory.get(num2-1).contains("‘")){
+                    temp.add(str + SaveArea.memory.get(num2 - 1).split("‘")[0].replaceAll("\r|\n", "")+System.getProperty("line.separator"));
                 }
                 else{
-                temp.add(str + EDLineEditor.memory.get(num2 - 1));}
-                for (int i = num2; i < EDLineEditor.memory.size(); i++) {
-                    temp.add(EDLineEditor.memory.get(i));
+                temp.add(str + SaveArea.memory.get(num2 - 1));}
+                for (int i = num2; i < SaveArea.memory.size(); i++) {
+                    temp.add(SaveArea.memory.get(i));
                 }
-                EDLineEditor.memory = temp;
-                EDLineEditor.currentLine = num1;
-                EDLineEditor.saveList.add(EDLineEditor.memory);
-                EDLineEditor.lineList.add(EDLineEditor.currentLine);
-                EDLineEditor.undoCounter++;
+                SaveArea.memory = temp;
+                SaveArea.currentLine = num1;
+                SaveArea.saveList.add(SaveArea.memory);
+                SaveArea.lineList.add(SaveArea.currentLine);
+                SaveArea.undoCounter++;
             }
         }
         catch(Exception ex){
@@ -534,28 +523,28 @@ class CommandM implements Command{
         try {
             List<String> temp=new ArrayList<>();
             if (num1 > num3) {
-                for(int i=0;i<num3;i++){ temp.add(EDLineEditor.memory.get(i)); }
-                for(int i=num1-1;i<num2;i++){ temp.add(EDLineEditor.memory.get(i)); }
-                for(int i=num3;i<num1-1;i++){temp.add(EDLineEditor.memory.get(i));}
-                for(int i=num2;i<EDLineEditor.memory.size();i++){temp.add(EDLineEditor.memory.get(i));}
-                EDLineEditor.currentLine=num3+num2-num1+1;
+                for(int i=0;i<num3;i++){ temp.add(SaveArea.memory.get(i)); }
+                for(int i=num1-1;i<num2;i++){ temp.add(SaveArea.memory.get(i)); }
+                for(int i=num3;i<num1-1;i++){temp.add(SaveArea.memory.get(i));}
+                for(int i=num2;i<SaveArea.memory.size();i++){temp.add(SaveArea.memory.get(i));}
+                SaveArea.currentLine=num3+num2-num1+1;
 
-                EDLineEditor.memory=temp;
+                SaveArea.memory=temp;
             }
             if (num2 < num3) {
-                for(int i=0;i<num1-1;i++){ temp.add(EDLineEditor.memory.get(i)); }
-                for(int i=num2;i<num3;i++){ temp.add(EDLineEditor.memory.get(i)); }
-                for(int i=num1-1;i<num2;i++){temp.add(EDLineEditor.memory.get(i));}
-                for(int i=num3;i<EDLineEditor.memory.size();i++){temp.add(EDLineEditor.memory.get(i));}
-                EDLineEditor.currentLine=num3;
-                EDLineEditor.memory=temp;
+                for(int i=0;i<num1-1;i++){ temp.add(SaveArea.memory.get(i)); }
+                for(int i=num2;i<num3;i++){ temp.add(SaveArea.memory.get(i)); }
+                for(int i=num1-1;i<num2;i++){temp.add(SaveArea.memory.get(i));}
+                for(int i=num3;i<SaveArea.memory.size();i++){temp.add(SaveArea.memory.get(i));}
+                SaveArea.currentLine=num3;
+                SaveArea.memory=temp;
             }
             if(num1==num2&&num1==num3){
-                EDLineEditor.currentLine=num1;
+                SaveArea.currentLine=num1;
             }
-            EDLineEditor.saveList.add(EDLineEditor.memory);
-            EDLineEditor.lineList.add(EDLineEditor.currentLine);
-            EDLineEditor.undoCounter++;
+           SaveArea.saveList.add(SaveArea.memory);
+           SaveArea.lineList.add(SaveArea.currentLine);
+           SaveArea.undoCounter++;
 
 
         } catch (Exception ex) {
@@ -579,15 +568,15 @@ class CommandT implements Command{
     public void execute() {
         try {
             List<String> temp=new ArrayList<>();
-            for(int i=0;i<num3;i++){temp.add(EDLineEditor.memory.get(i));}
-            for(int i=num1-1;i<num2;i++){temp.add(EDLineEditor.memory.get(i));}
-            for(int i=num3;i<EDLineEditor.memory.size();i++){temp.add(EDLineEditor.memory.get(i));}
-            EDLineEditor.memory=temp;
+            for(int i=0;i<num3;i++){temp.add(SaveArea.memory.get(i));}
+            for(int i=num1-1;i<num2;i++){temp.add(SaveArea.memory.get(i));}
+            for(int i=num3;i<SaveArea.memory.size();i++){temp.add(SaveArea .memory.get(i));}
+           SaveArea.memory=temp;
 
-            EDLineEditor.currentLine=num3+num2-num1+1;
-            EDLineEditor.saveList.add(EDLineEditor.memory);
-            EDLineEditor.lineList.add(EDLineEditor.currentLine);
-            EDLineEditor.undoCounter++;
+           SaveArea.currentLine=num3+num2-num1+1;
+           SaveArea.saveList.add(SaveArea.memory);
+           SaveArea.lineList.add(SaveArea.currentLine);
+           SaveArea.undoCounter++;
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -610,10 +599,10 @@ class CommandK implements Command{
     public void execute() {
         try {
             if(Pattern.matches("[a-z]",str)){
-            EDLineEditor.memory.set(num-1,EDLineEditor.memory.get(num-1).replaceAll("\r|\n","")+"‘"+str+System.getProperty("line.separator"));
-            EDLineEditor.saveList.add(EDLineEditor.memory);
-            EDLineEditor.lineList.add(EDLineEditor.currentLine);
-            EDLineEditor.undoCounter++;}
+            SaveArea.memory.set(num-1,SaveArea.memory.get(num-1).replaceAll("\r|\n","")+"‘"+str+System.getProperty("line.separator"));
+            SaveArea.saveList.add(SaveArea.memory);
+            SaveArea.lineList.add(SaveArea.currentLine);
+            SaveArea.undoCounter++;}
             else{System.out.println("?");}
         }catch (Exception ex){ex.printStackTrace();}
     }
@@ -647,17 +636,17 @@ class CommandP implements Command{
     @Override
     public void execute() {
         try {
-            if (num1<0||num2 > EDLineEditor.memory.size()) {
+            if (num1<0||num2 > SaveArea.memory.size()) {
                 System.out.println("?");
             } else {
 
-                EDLineEditor.currentLine = num2;
+                SaveArea.currentLine = num2;
                 for (int i = num1 - 1; i >= 0 && i <= num2 - 1; i++) {
 
-                    if(EDLineEditor.memory.get(i).contains("‘")){
-                        System.out.print(EDLineEditor.memory.get(i).split("‘")[0].replaceAll("\r|\n", "")+System.getProperty("line.separator"));
+                    if(SaveArea.memory.get(i).contains("‘")){
+                        System.out.print(SaveArea.memory.get(i).split("‘")[0].replaceAll("\r|\n", "")+System.getProperty("line.separator"));
                     }else{
-                        System.out.print(EDLineEditor.memory.get(i));}
+                        System.out.print(SaveArea.memory.get(i));}
                 }
             }}
         catch(Exception ex){
