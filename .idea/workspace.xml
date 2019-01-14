@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="947337e0-f9a4-40ae-916e-f526e3af5511" name="Default" comment="">
+    <list default="true" id="947337e0-f9a4-40ae-916e-f526e3af5511" name="Default" comment="Finish the class SaveArea&#10;Isolate the responsibilities of some classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/EDLineEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/EDLineEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/SaveArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/SaveArea.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +14,7 @@
     <session id="-9462056">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.20" value="1" />
@@ -34,17 +30,18 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="161" />
+          <entry key="PLAIN_TEXT" value="104" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513">
-              <caret line="319" column="8" selection-start-line="319" selection-start-column="8" selection-end-line="319" selection-end-column="8" />
+            <state relative-caret-position="-3800">
+              <caret line="392" selection-start-line="392" selection-end-line="392" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#FileFinder#0;class#Reader#0" />
@@ -53,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
+            <state relative-caret-position="2503">
+              <caret line="612" column="6" selection-start-line="612" selection-start-column="6" selection-end-line="612" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#CommandC#0;class#CommandC#0" />
@@ -74,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="190">
+              <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -83,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/EDLineEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-152">
+            <state relative-caret-position="37">
               <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
             </state>
           </provider>
@@ -130,7 +127,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
@@ -199,7 +196,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547391134917" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547391344898" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -438,18 +435,24 @@
       <option name="project" value="LOCAL" />
       <updated>1530374444384</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Finish the class SaveArea&#10;Isolate the responsibilities of some classes">
+      <created>1547391286038</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1547391286038</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.22050938" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.22050938" />
       <window_info id="Structure" order="5" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
@@ -458,7 +461,7 @@
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.3922463" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.39148936" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3990878" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -479,7 +482,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="try k" />
     <MESSAGE value="68" />
-    <option name="LAST_COMMIT_MESSAGE" value="68" />
+    <MESSAGE value="Finish the class SaveArea&#10;Isolate the responsibilities of some classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish the class SaveArea&#10;Isolate the responsibilities of some classes" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -531,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/EDLineEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -549,10 +546,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3800">
+          <caret line="392" selection-start-line="392" selection-end-line="392" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#FileFinder#0;class#Reader#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/EDLineEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
+        <state relative-caret-position="2503">
+          <caret line="612" column="6" selection-start-line="612" selection-start-column="6" selection-end-line="612" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CommandC#0;class#CommandC#0" />
@@ -561,24 +583,6 @@
             <element signature="method#CommandJ#0;class#CommandJ#0" />
             <element signature="method#CommandK#0;class#CommandK#0" />
             <element signature="method#CommandP#0;class#CommandP#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/67-ed-line-editor-bonus/src/main/java/eDLineEditor/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="319" column="8" selection-start-line="319" selection-start-column="8" selection-end-line="319" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#FileFinder#0;class#Reader#0" />
           </folding>
         </state>
       </provider>
