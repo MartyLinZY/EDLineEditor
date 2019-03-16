@@ -8,6 +8,4 @@ Edited on 9012.1.11: It is ABSOLUTELY not so-called Command Pattern. Just 1000+ 
 + Complicated dependency relations;
 + Too many codes while no man pays me according to lines
 ## Future Plan:
-* Try some new REs or any way to analyse the command     
-
- 
+* Try some new REs or any way to analyse the command   
